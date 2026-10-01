@@ -74,6 +74,7 @@ pip install apache-airflow pyspark psycopg2-binary requests python-dotenv
 4. Запустить Airflow:
 
    ```bash
+   export AIRFLOW__CORE__DAGS_FOLDER="$(pwd)/dags"
    airflow standalone
    ```
 
