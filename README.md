@@ -31,7 +31,10 @@
 ├── views.sql                    # запросы для витрин
 ├── dags/
 │   └── airf.py                  # Airflow DAG
-├── tmp/                         # промежуточные файлы (raw json, parquet)
+├── tmp/                         # промежуточные файлы
+│   ├── flights_parquet/         # parquet файлы с чистыми данными
+│   ├── raw_json.json            # сырые данные
+│   └── time_json.json           # данные о времени API
 └── src/
     ├── api/
     │   └── api_client.py        # запрос к OpenSky API
@@ -71,7 +74,7 @@ pip install apache-airflow pyspark psycopg2-binary requests python-dotenv
    python main.py
    ```
 
-4. Запустить Airflow:
+4. Запустить Airflow (из корня проекта):
 
    ```bash
    export AIRFLOW__CORE__DAGS_FOLDER="$(pwd)/dags"
